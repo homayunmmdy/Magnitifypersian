@@ -1,11 +1,10 @@
 import CashData from "@/app/cash/CashData";
 import { PublicationModel } from "@/app/models";
-import { handleGetSingleRequest } from "@/app/util/apiUtil";
+import { handleGetRequest, handleGetSingleRequest } from "@/app/util/apiUtil";
 import { NextResponse } from "next/server";
 
-export async function GET(request, { params }) {
-  const { id } = params;
-  return handleGetSingleRequest(PublicationModel, id , CashData);
+export async function GET() {
+  return handleGetRequest(PublicationModel, CashData);
 }
 
 export async function PUT(req, { params }) {

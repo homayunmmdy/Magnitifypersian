@@ -3,9 +3,10 @@ import useFetch from '@/app/hooks/useFetch'
 import React from 'react'
 import PublicationCard from './PublicationCard'
 import PublicationsSkeleton from './PublicationsSkeleton'
+import { PUBLICATION_API_URL } from '@/app/config/apiConstants'
 
 const publications = () => {
-    const { data , loading } = useFetch('/api/publications');
+    const { data , loading } = useFetch(PUBLICATION_API_URL);
     const publicationsData = data?.slice(-4)
     if(loading) {
         return <PublicationsSkeleton />

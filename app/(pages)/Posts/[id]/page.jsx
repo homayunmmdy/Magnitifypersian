@@ -9,9 +9,10 @@ import { useState } from "react";
 import { FormatTime } from "@/app/components/layout";
 import useSinglePost from "@/app/hooks/useSinglePost";
 import SiteConfig from "@/app/config/site";
+import { POST_API_URL } from "@/app/config/apiConstants";
 
 const Post = () => {
-  const post = useSinglePost();
+  const post = useSinglePost(POST_API_URL , 7);
   const { user } = useUser();
   const API_URL = process.env.API_URL;
   const pathname = usePathname();
@@ -34,7 +35,6 @@ const Post = () => {
   };
   const text = `${post?.title}. ${post?.body}`
   const readingTimeEstimate = readingTime(text, 100, "en")
-  const canonicalUrl = `${API_URL}/Posts/${id}`
 
   const handleReadText = () => {
     const utterance = new SpeechSynthesisUtterance(text);

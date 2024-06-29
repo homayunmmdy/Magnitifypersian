@@ -5,7 +5,7 @@ const PublicationCard = ({ publication }) => {
     return (
         <>
             <div className="group card bg-base-100 border-2 border-slate-100 hover:border-indigo-700 delay-100 ease-in-out duration-300 shadow-xl" key={publication._id}>
-                <Link href={`/publication/${publication._id}`} className="px-10 pt-10">
+                <Link href={`/publications/${publication._id}`} className="px-10 pt-10">
                     <img
                         src={publication.imgurl}
                         title={publication.title}

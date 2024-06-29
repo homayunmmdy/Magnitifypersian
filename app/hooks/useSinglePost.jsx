@@ -1,13 +1,13 @@
+'use client'
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { POST_API_URL } from "@/app/config/apiConstants";
 import APIClient from "../util/apiClient";
 
-const useSinglePost = () => {
+const useSinglePost = ({url , pathLength}) => {
     const pathname = usePathname();
-    const id = pathname.slice(7);
+    const id = pathname.slice(pathLength);
     const [post, setPost] = useState();
-    const apiClient = new APIClient(POST_API_URL);
+    const apiClient = new APIClient(url);
 
     useEffect(() => {
         const fetchPost = async () => {
